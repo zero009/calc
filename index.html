@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>动态分配空间与垂直居中</title>
+</head>
+<style type="text/css">
+*{
+	margin:0;
+	padding: 0;
+}
+.demo{
+	height: 150px;
+	margin-top: 10px;
+	background-color: #ddd;
+	position: relative;
+} 
+.col-3{
+	width: calc(100%/3 - 5px);
+	float: left;
+	margin-right: calc(5px*3 /2);
+	margin-bottom: calc(5px*3 /2);
+	background-color: red;
+	color: #fff;
+	height: 150px;
+	line-height: 150px;
+	text-align: center;
+	font-size: 24px;
+}
+.col-3:nth-child(3){
+	margin-right: 0;
+}
+#demo2{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	margin-top: -3em;
+	margin-left: -9em;
+	width: 18em;
+	height: 6em;
+	background-color: orange;
+}
+#demo3{
+	position: absolute;
+	top:calc(50% - 3em);
+	left: calc(50% - 9em);
+	width: 18em;
+	height: 6em;
+	background-color: blue;
+}
+#demo4{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: yellow;
+}
+#demo5{
+	width: 18em;
+	padding: 1em 1.5em;
+	margin: 50vh auto 0;
+	transform: translateY(-50%);
+	background-color: blue;
+}
+#demo6{	 
+	background-color: rgba(144,244,144,.3);
+	margin: auto;
+}
+#demo7{
+	background-color: rgba(244,122,111,.5);
+}
+#demo8{
+	background-color: rgba(222,222,188,.8);
+}
+</style>
+<body>
+	<!-- 利用calc计算 -->
+    <div id="demo1" class="demo">
+		<div class="col-3">demo1</div>
+		<div class="col-3">demo1</div>
+		<div class="col-3">demo1</div>
+	</div>
+	<div class="demo">
+		<div id="demo2">
+			<p>demo2</p>
+		</div>
+	</div>
+	<div class="demo">
+		<div id="demo3">
+			<p>demo3</p>
+		</div>
+	</div>
+	<!-- 利用transform -->
+	<div class="demo">
+		<div id="demo4">
+			<p>demo4</p>
+		</div>
+	</div>
+	<!-- 视口居中，所有的demo都隐掉可以看到它的效果 
+	<div id="demo5">
+		<p>demo5</p>
+	</div>
+    -->
+    <!-- 利用display:flex搭配margin：auto-->
+    <div class="demo" style="display: flex;display: -webkit-flex;">
+		<div id="demo6">
+			<p>demo6</p><p>demo6</p>
+		</div>
+	</div>
+	<!-- 利用display:flex -->
+	<div class="demo" style="display: flex;display: -webkit-flex;-webkit-align-items:center;align-items:center;-webkit-justify-content :center;justify-content: center;">
+		<div id="demo7">
+			<p>demo7</p><p>demo7</p>
+		</div>
+	</div>
+	<!-- 利用display:box -->
+	<div class="demo" style="display: box;display: -webkit-box;-webkit-box-pack :center;box-pack:center;-webkit-box-align:center;box-align:center;">
+		<div id="demo8">
+			<p>demo8</p><p>demo8</p>
+		</div>
+	</div>
+</body>
+</html>
